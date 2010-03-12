@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+<reportConfiguration xmlns='http://openuri.org/reportconfig' >
+
+  <datasource name='librarydb'>
+	  <driver>com.mysql.jdbc.Driver</driver>	
+	  <jdbc>jdbc:mysql://localhost:3306/libraryDb</jdbc>
+	  <user>root</user>
+	  <pass>root</pass>
+  </datasource>
+  
+  <reports>
+	 
+	  <report name="Inventory Report">
+		
+		<params>
+			<param name='title' label='Title Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+			
+			<param name='author' label='Author Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+			
+			<param name='itemtype' label='Item Type Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+		</params>
+
+		<query>
+		<![CDATA[ select p.indexNo, catNo, title, ISBN, author, trim( itemtype) as itemtype, if( ISNULL(i.indexNo) ,'N','Y') as onhand 
+				from product p left outer join inventory i on p.indexNo = i.indexNo  
+				where title like ? and author like ? and itemtype like ?
+				order by trim(p.itemtype), p.indexNo  
+		]]>
+		</query>
+
+		<output type='html' ></output>
+
+	  </report>
+
+
+	  <report name="Inventory By Title Report">
+		
+		<params>
+			
+			<param name='title' label='Title Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+		
+		</params>
+
+		<query>
+		<![CDATA[ select p.indexNo, catNo, title, author, trim( itemtype) as itemtype, if( ISNULL(i.indexNo) ,'N','Y') as onhand 
+				from product p left outer join inventory i on p.indexNo = i.indexNo  
+				where title like ? 
+				order by trim(p.itemtype), p.indexNo  
+		]]>
+		</query>
+
+		<output type='html' ></output>
+
+	  </report>
+	  
+	  <report name="Categories By Keyword Report">
+		
+		<params>
+			
+			<param name='keyword' label='Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+		
+		</params>
+
+		<query>
+		<![CDATA[ select * 
+				from category   
+				where catNo like ? 
+				order by catNo
+		]]>
+		</query>
+
+		<output type='html' ></output>
+
+	  </report>
+
+
+     <report name="Borrower ListReport">
+		
+		<params>
+			<param name='firstname' label='First Name Keyword:' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+			<param name='lastname' label='Last Name Keyword:' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+			<param name='phone' label='Phone Keyword:' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+		</params>
+
+		<query>
+		<![CDATA[ select * 
+				from borrower   
+				where firstName like ? and lastName like ? and phoneNo like ? 
+				order by lastName, firstName
+		]]>
+		</query>
+
+		<output type='html' ></output>
+
+	  </report>
+	  
+	  <report name="Check In Out Report">
+		
+		<params>
+			
+			<param name='firstname' label='Borrower First Name :' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+			<param name='lastname' label='Borrower Last Name :' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+			<param name='indexno' label='Index No:' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+			<param name='title' label='Title Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+			
+			<param name='checkoutdate' label='Check Out Date:' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+		</params>
+
+		<query>
+		<![CDATA[ select c.borrowId, b.firstName,b.lastName, c.indexNo, p.title, c.checkedOutDate, c.dueDate, c.checkedInDate  
+				from checkinout c join borrower b on c.borrowid = b.borrowid 
+				     join product p on c.indexNo = p.indexNo    
+				where b.firstName like ? and b.lastName like ? and c.indexNo like ? and p.title like ? and c.checkedOutDate like ?
+				order by b.lastName, b.firstName, c.checkedOutDate desc, c.indexNo   
+		]]>
+		</query>
+
+		<output type='html' ></output>
+
+	  </report>
+	  
+	  <report name="Borrower Item Checked Out Report">
+		
+		<params>
+			
+			<param name='indexno' label='Index No:' type='text'>
+				<keyword prefix='%' postfix='' /> 
+			</param>
+			
+			<param name='title' label='Title Keyword:' type='text'>
+				<keyword prefix='%' postfix='%' /> 
+			</param>
+			
+			
+		</params>
+
+		<query>
+		<![CDATA[ select c.borrowId, b.firstName,b.lastName, c.indexNo, p.title, c.checkedOutDate, c.dueDate, c.checkedInDate  
+				from checkinout c join borrower b on c.borrowid = b.borrowid 
+				     join product p on c.indexNo = p.indexNo    
+				where c.indexNo like ? and p.title like ? 
+				order by c.indexNo, c.checkedOutDate desc  
+		]]>
+		</query>
+
+		<output type='html' ></output>
+
+	  </report>
+	  
+
+  </reports>
+
+
+</reportConfiguration>

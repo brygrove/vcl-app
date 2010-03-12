@@ -1,0 +1,463 @@
+<?xml version='1.0' ?>
+<dataset>
+	<header>
+		<col align="left" ><![CDATA[Borrower ID]]></col>
+		<col align="left" ><![CDATA[First Name]]></col>
+		<col align="left" ><![CDATA[Last Name]]></col>
+		<col align="left" ><![CDATA[Index No]]></col>
+		<col align="left" ><![CDATA[Title]]></col>
+		<col align="left" ><![CDATA[Check Out Date]]></col>
+		<col align="left" ><![CDATA[Due Date]]></col>
+		<col align="left" ><![CDATA[Check In Date]]></col>
+	</header>
+	<row>
+		<col><![CDATA[GLH024]]></col>
+		<col><![CDATA[Lena]]></col>
+		<col><![CDATA[Guenther]]></col>
+		<col><![CDATA[03DMOE03-01]]></col>
+		<col><![CDATA[GOD is Good]]></col>
+		<col><![CDATA[2006-04-09]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[17JMEY02-02]]></col>
+		<col><![CDATA[GOD is Faithful & True]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+	</row>
+	<row>
+		<col><![CDATA[PLC19]]></col>
+		<col><![CDATA[Louise]]></col>
+		<col><![CDATA[Paschalis]]></col>
+		<col><![CDATA[17JMEY02-02]]></col>
+		<col><![CDATA[GOD is Faithful & True]]></col>
+		<col><![CDATA[2006-01-29]]></col>
+		<col><![CDATA[2006-02-05]]></col>
+		<col><![CDATA[2006-02-12]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MJM777]]></col>
+		<col><![CDATA[Juliette]]></col>
+		<col><![CDATA[Mabley]]></col>
+		<col><![CDATA[18TTEN01-01]]></col>
+		<col><![CDATA[The GOD Chasers]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[18TTEN01-01]]></col>
+		<col><![CDATA[The GOD Chasers]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MSD006]]></col>
+		<col><![CDATA[Sharon]]></col>
+		<col><![CDATA[McClennon]]></col>
+		<col><![CDATA[18TTEN01-01]]></col>
+		<col><![CDATA[The GOD Chasers]]></col>
+		<col><![CDATA[2006-03-05]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-03-12]]></col>
+	</row>
+	<row>
+		<col><![CDATA[SLP013]]></col>
+		<col><![CDATA[Linda]]></col>
+		<col><![CDATA[Salazar]]></col>
+		<col><![CDATA[18TTEN01-01]]></col>
+		<col><![CDATA[The GOD Chasers]]></col>
+		<col><![CDATA[2006-01-15]]></col>
+		<col><![CDATA[2006-01-22]]></col>
+		<col><![CDATA[2006-01-22]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MSD006]]></col>
+		<col><![CDATA[Sharon]]></col>
+		<col><![CDATA[McClennon]]></col>
+		<col><![CDATA[18TTEN02-01]]></col>
+		<col><![CDATA[The GOD Chasers]]></col>
+		<col><![CDATA[2006-03-05]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-03-12]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MWA021]]></col>
+		<col><![CDATA[Wayne]]></col>
+		<col><![CDATA[McDougall]]></col>
+		<col><![CDATA[19JMEY03-01(3)]]></col>
+		<col><![CDATA[Finding GOD's Purpose for Your Life]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-05-28]]></col>
+		<col><![CDATA[2006-05-21]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MJM777]]></col>
+		<col><![CDATA[Juliette]]></col>
+		<col><![CDATA[Mabley]]></col>
+		<col><![CDATA[33TTEN01-02]]></col>
+		<col><![CDATA[Prayers of a GOD Chaser]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[34JDUP01-02]]></col>
+		<col><![CDATA[Close Encounters of the GOD Kind]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[2006-06-25]]></col>
+		<col><![CDATA[]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[34JDUP01-02]]></col>
+		<col><![CDATA[Close Encounters of the GOD Kind]]></col>
+		<col><![CDATA[2006-06-11]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[44JDUP06-01(2)]]></col>
+		<col><![CDATA[Overflow - GOD's Gift of Abundance for You]]></col>
+		<col><![CDATA[2006-06-04]]></col>
+		<col><![CDATA[2006-06-25]]></col>
+		<col><![CDATA[]]></col>
+	</row>
+	<row>
+		<col><![CDATA[GLH024]]></col>
+		<col><![CDATA[Lena]]></col>
+		<col><![CDATA[Guenther]]></col>
+		<col><![CDATA[47JMEY05-02]]></col>
+		<col><![CDATA[GOD Will Meet You Where You Are]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-05-14]]></col>
+		<col><![CDATA[2006-05-14]]></col>
+	</row>
+	<row>
+		<col><![CDATA[LDW009]]></col>
+		<col><![CDATA[Dave]]></col>
+		<col><![CDATA[Love]]></col>
+		<col><![CDATA[47JMEY05-02]]></col>
+		<col><![CDATA[GOD Will Meet You Where You Are]]></col>
+		<col><![CDATA[2006-04-09]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+	</row>
+	<row>
+		<col><![CDATA[LDW009]]></col>
+		<col><![CDATA[Dave]]></col>
+		<col><![CDATA[Love]]></col>
+		<col><![CDATA[47JMEY05-02]]></col>
+		<col><![CDATA[GOD Will Meet You Where You Are]]></col>
+		<col><![CDATA[2006-03-05]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+	</row>
+	<row>
+		<col><![CDATA[GLH024]]></col>
+		<col><![CDATA[Lena]]></col>
+		<col><![CDATA[Guenther]]></col>
+		<col><![CDATA[47JMEY11-02]]></col>
+		<col><![CDATA[Are You Sure You Want to Be Used By GOD?]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-05-14]]></col>
+		<col><![CDATA[2006-05-14]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MJM777]]></col>
+		<col><![CDATA[Juliette]]></col>
+		<col><![CDATA[Mabley]]></col>
+		<col><![CDATA[48DCAP01-01]]></col>
+		<col><![CDATA[GOD's Secret to Greatness]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[]]></col>
+	</row>
+	<row>
+		<col><![CDATA[VAB018]]></col>
+		<col><![CDATA[Angelika]]></col>
+		<col><![CDATA[Van Battum]]></col>
+		<col><![CDATA[48JMEY10-01(2)]]></col>
+		<col><![CDATA[Don't Worry, GOD is in Control]]></col>
+		<col><![CDATA[2006-04-02]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+		<col><![CDATA[2006-04-09]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[50CDOL11-01(2)]]></col>
+		<col><![CDATA[You've Heard From GOD...Now What?]]></col>
+		<col><![CDATA[2006-05-28]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[2006-06-11]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MFW028]]></col>
+		<col><![CDATA[Fred]]></col>
+		<col><![CDATA[Miller]]></col>
+		<col><![CDATA[50JDUP01-01]]></col>
+		<col><![CDATA[Hearing GOD's Voice]]></col>
+		<col><![CDATA[2006-04-29]]></col>
+		<col><![CDATA[2006-04-30]]></col>
+		<col><![CDATA[2006-04-30]]></col>
+	</row>
+	<row>
+		<col><![CDATA[AWE333]]></col>
+		<col><![CDATA[Wendy]]></col>
+		<col><![CDATA[Allan]]></col>
+		<col><![CDATA[50JDUP01-01]]></col>
+		<col><![CDATA[Hearing GOD's Voice]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+		<col><![CDATA[2006-04-30]]></col>
+		<col><![CDATA[2006-04-29]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[50JDUP01-01]]></col>
+		<col><![CDATA[Hearing GOD's Voice]]></col>
+		<col><![CDATA[2006-03-12]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+	</row>
+	<row>
+		<col><![CDATA[FLA002]]></col>
+		<col><![CDATA[Lorraine]]></col>
+		<col><![CDATA[Fontinha]]></col>
+		<col><![CDATA[50JDUP01-01]]></col>
+		<col><![CDATA[Hearing GOD's Voice]]></col>
+		<col><![CDATA[2006-02-05]]></col>
+		<col><![CDATA[2006-02-12]]></col>
+		<col><![CDATA[2006-02-26]]></col>
+	</row>
+	<row>
+		<col><![CDATA[VAB018]]></col>
+		<col><![CDATA[Angelika]]></col>
+		<col><![CDATA[Van Battum]]></col>
+		<col><![CDATA[50JOST08-01]]></col>
+		<col><![CDATA[Increasing in GOD's Favor]]></col>
+		<col><![CDATA[2006-05-21]]></col>
+		<col><![CDATA[2006-05-28]]></col>
+		<col><![CDATA[2006-05-28]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[50JOST08-01]]></col>
+		<col><![CDATA[Increasing in GOD's Favor]]></col>
+		<col><![CDATA[2006-03-12]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+	</row>
+	<row>
+		<col><![CDATA[PLC19]]></col>
+		<col><![CDATA[Louise]]></col>
+		<col><![CDATA[Paschalis]]></col>
+		<col><![CDATA[53JMEY02-01]]></col>
+		<col><![CDATA[I Belong to GOD, and He Love Me]]></col>
+		<col><![CDATA[2005-12-11]]></col>
+		<col><![CDATA[2006-01-01]]></col>
+		<col><![CDATA[2006-01-08]]></col>
+	</row>
+	<row>
+		<col><![CDATA[PLC19]]></col>
+		<col><![CDATA[Louise]]></col>
+		<col><![CDATA[Paschalis]]></col>
+		<col><![CDATA[53JMEY02-01]]></col>
+		<col><![CDATA[I Belong to GOD, and He Love Me]]></col>
+		<col><![CDATA[2005-12-04]]></col>
+		<col><![CDATA[2005-12-18]]></col>
+		<col><![CDATA[2005-12-11]]></col>
+	</row>
+	<row>
+		<col><![CDATA[KPJ019]]></col>
+		<col><![CDATA[Paula]]></col>
+		<col><![CDATA[Karachun]]></col>
+		<col><![CDATA[53KCOP01-01(2)]]></col>
+		<col><![CDATA[Releasing GOD's Love in You]]></col>
+		<col><![CDATA[2006-03-05]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-04-01]]></col>
+	</row>
+	<row>
+		<col><![CDATA[DJC017]]></col>
+		<col><![CDATA[Julia]]></col>
+		<col><![CDATA[Damberger]]></col>
+		<col><![CDATA[54JMEY01-01]]></col>
+		<col><![CDATA[Relax and Receive from GOD]]></col>
+		<col><![CDATA[2006-05-21]]></col>
+		<col><![CDATA[2006-05-28]]></col>
+		<col><![CDATA[2006-05-28]]></col>
+	</row>
+	<row>
+		<col><![CDATA[VAB018]]></col>
+		<col><![CDATA[Angelika]]></col>
+		<col><![CDATA[Van Battum]]></col>
+		<col><![CDATA[54JMEY01-01]]></col>
+		<col><![CDATA[Relax and Receive from GOD]]></col>
+		<col><![CDATA[2006-04-02]]></col>
+		<col><![CDATA[2006-04-09]]></col>
+		<col><![CDATA[2006-04-09]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MSD006]]></col>
+		<col><![CDATA[Sharon]]></col>
+		<col><![CDATA[McClennon]]></col>
+		<col><![CDATA[61gmor01-#02]]></col>
+		<col><![CDATA[The Winds of GOD]]></col>
+		<col><![CDATA[2006-04-16]]></col>
+		<col><![CDATA[2006-05-07]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+	</row>
+	<row>
+		<col><![CDATA[SJL003]]></col>
+		<col><![CDATA[Julie]]></col>
+		<col><![CDATA[Scott]]></col>
+		<col><![CDATA[61GMOR01-#02]]></col>
+		<col><![CDATA[The Winds of GOD]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+		<col><![CDATA[2006-04-09]]></col>
+		<col><![CDATA[2006-04-08]]></col>
+	</row>
+	<row>
+		<col><![CDATA[MSD006]]></col>
+		<col><![CDATA[Sharon]]></col>
+		<col><![CDATA[McClennon]]></col>
+		<col><![CDATA[61RVAU01-#01]]></col>
+		<col><![CDATA[Touch the Face of GOD]]></col>
+		<col><![CDATA[2006-03-05]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-03-19]]></col>
+	</row>
+	<row>
+		<col><![CDATA[AWE333]]></col>
+		<col><![CDATA[Wendy]]></col>
+		<col><![CDATA[Allan]]></col>
+		<col><![CDATA[68SONG01-#03]]></col>
+		<col><![CDATA[GOD's Protection: Volume 3]]></col>
+		<col><![CDATA[2005-09-25]]></col>
+		<col><![CDATA[2005-10-02]]></col>
+		<col><![CDATA[2005-10-02]]></col>
+	</row>
+	<row>
+		<col><![CDATA[SDM007]]></col>
+		<col><![CDATA[Diane]]></col>
+		<col><![CDATA[Stones]]></col>
+		<col><![CDATA[68VEGG01-#05]]></col>
+		<col><![CDATA[Where's GOD When I'm S-Scared?]]></col>
+		<col><![CDATA[2005-12-04]]></col>
+		<col><![CDATA[2005-12-11]]></col>
+		<col><![CDATA[2005-12-10]]></col>
+	</row>
+	<row>
+		<col><![CDATA[HBJ008]]></col>
+		<col><![CDATA[Brandon J.]]></col>
+		<col><![CDATA[Holley]]></col>
+		<col><![CDATA[68VEGG01-#05]]></col>
+		<col><![CDATA[Where's GOD When I'm S-Scared?]]></col>
+		<col><![CDATA[2005-11-14]]></col>
+		<col><![CDATA[2005-11-20]]></col>
+		<col><![CDATA[2005-11-20]]></col>
+	</row>
+	<row>
+		<col><![CDATA[SDM007]]></col>
+		<col><![CDATA[Diane]]></col>
+		<col><![CDATA[Stones]]></col>
+		<col><![CDATA[68VEGG01-#16]]></col>
+		<col><![CDATA["GOD Wants Me To Forgive Them?!?"]]></col>
+		<col><![CDATA[2005-12-03]]></col>
+		<col><![CDATA[2005-12-18]]></col>
+		<col><![CDATA[2005-12-04]]></col>
+	</row>
+	<row>
+		<col><![CDATA[AWE333]]></col>
+		<col><![CDATA[Wendy]]></col>
+		<col><![CDATA[Allan]]></col>
+		<col><![CDATA[68WILD01-#03]]></col>
+		<col><![CDATA[Talk to God. He Listens!]]></col>
+		<col><![CDATA[2005-11-06]]></col>
+		<col><![CDATA[2005-11-13]]></col>
+		<col><![CDATA[2005-11-12]]></col>
+	</row>
+	<row>
+		<col><![CDATA[LDA777]]></col>
+		<col><![CDATA[Denise]]></col>
+		<col><![CDATA[Lizotte]]></col>
+		<col><![CDATA[75KHAG01-01]]></col>
+		<col><![CDATA[How to Make the Dream GOD Gave You Come True]]></col>
+		<col><![CDATA[2005-11-06]]></col>
+		<col><![CDATA[2005-11-27]]></col>
+		<col><![CDATA[2005-11-19]]></col>
+	</row>
+	<row>
+		<col><![CDATA[FCJ018]]></col>
+		<col><![CDATA[Carol]]></col>
+		<col><![CDATA[Felling]]></col>
+		<col><![CDATA[76GJEF01-#01-03(2)]]></col>
+		<col><![CDATA[The Signature of GOD]]></col>
+		<col><![CDATA[2005-12-04]]></col>
+		<col><![CDATA[2005-12-25]]></col>
+		<col><![CDATA[2005-12-18]]></col>
+	</row>
+	<row>
+		<col><![CDATA[AWE333]]></col>
+		<col><![CDATA[Wendy]]></col>
+		<col><![CDATA[Allan]]></col>
+		<col><![CDATA[85CMAT02-01]]></col>
+		<col><![CDATA[GODS of Entertainment]]></col>
+		<col><![CDATA[2005-10-16]]></col>
+		<col><![CDATA[2005-10-23]]></col>
+		<col><![CDATA[2005-10-29]]></col>
+	</row>
+	<row>
+		<col><![CDATA[WGJ020]]></col>
+		<col><![CDATA[Jean]]></col>
+		<col><![CDATA[Witt]]></col>
+		<col><![CDATA[93NEWS02-#01]]></col>
+		<col><![CDATA[GOD's News Behind the News]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+	</row>
+	<row>
+		<col><![CDATA[WGJ020]]></col>
+		<col><![CDATA[Jean]]></col>
+		<col><![CDATA[Witt]]></col>
+		<col><![CDATA[93NEWS02-#02]]></col>
+		<col><![CDATA[GOD's News Behind the News]]></col>
+		<col><![CDATA[2006-03-26]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+		<col><![CDATA[2006-04-23]]></col>
+	</row>
+	<row>
+		<col><![CDATA[VAB018]]></col>
+		<col><![CDATA[Angelika]]></col>
+		<col><![CDATA[Van Battum]]></col>
+		<col><![CDATA[M96GODS01-01]]></col>
+		<col><![CDATA[GOD's Outlaw]]></col>
+		<col><![CDATA[2006-06-18]]></col>
+		<col><![CDATA[2006-06-25]]></col>
+		<col><![CDATA[]]></col>
+	</row>
+</dataset>

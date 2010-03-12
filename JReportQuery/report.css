@@ -1,0 +1,36 @@
+td.tdCol {
+	background: #D0FEFF;
+	font-family: "Courier New", Courier, monospace;
+	font-style: normal;
+	font-size: 16px;
+	color: #00014A;
+	font-weight: bold;
+}
+
+table, tr{ border: 1px solid black; }
+
+tr {
+	background: #F2FFFF;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+	color: #00014A;
+}
+
+td {
+	width: 10em;
+	
+}
+
+div.label {
+	background: #F2FFFF;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+	color: #00014A;
+}
+
+div.content {
+	background: #F2FFFF;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+	color: #00014A;
+}

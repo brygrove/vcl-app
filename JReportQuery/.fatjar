@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Tue Dec 15 21:36:07 PST 2009
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=JReportQuery.jar
+manifest.mergeall=true
+manifest.mainclass=com.jreportquery.app.ViewReportsFrame
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=config
+excludes=
+includes=<inc|JReportQuery/config>

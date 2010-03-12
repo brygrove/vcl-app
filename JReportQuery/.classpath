@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/resolver.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/saxon8.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/saxon8-jdom.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/saxon8-sql.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/xbean_xpath.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/xbean.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans/xmlpublic.jar"/>
+	<classpathentry kind="lib" path="libs/report-config.jar"/>
+	<classpathentry kind="lib" path="libs/log4j.jar"/>
+	<classpathentry kind="lib" path="libs/datasources/mySqlDriver.jar"/>
+	<classpathentry kind="lib" path="libs/datasources/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="lib" path="libs/apache-commons/commons-pool-1.5.2.jar"/>
+	<classpathentry kind="lib" path="libs/apache-commons/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/TableLayout-bin-jdk1.5-2009-06-10.jar"/>
+	<classpathentry kind="lib" path="libs/swingx-1.6.jar"/>
+	<classpathentry kind="lib" path="libs/swingx-beaninfo-1.6.jar"/>
+	<classpathentry kind="lib" path="libs/jdic.jar"/>
+	<classpathentry kind="lib" path="libs/windows/jdic_stub.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

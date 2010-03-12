@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://openuri.org/reportconfig" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="reportConfiguration" type="rep:reportConfigurationType" xmlns:rep="http://openuri.org/reportconfig"/>
+  <xs:complexType name="outputType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="paramsType">
+    <xs:sequence>
+      <xs:element type="rep:paramType" name="param" maxOccurs="unbounded" minOccurs="0" xmlns:rep="http://openuri.org/reportconfig"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramType">
+    <xs:sequence>
+      <xs:element type="rep:keywordType" name="keyword" xmlns:rep="http://openuri.org/reportconfig"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+    <xs:attribute type="xs:string" name="label" use="optional"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="reportType">
+    <xs:sequence>
+      <xs:element type="rep:paramsType" name="params" xmlns:rep="http://openuri.org/reportconfig"/>
+      <xs:element name="query">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="rep:outputType" name="output" xmlns:rep="http://openuri.org/reportconfig"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="reportConfigurationType">
+    <xs:sequence>
+      <xs:element type="rep:datasourceType" name="datasource" xmlns:rep="http://openuri.org/reportconfig"/>
+      <xs:element type="rep:reportsType" name="reports" xmlns:rep="http://openuri.org/reportconfig"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reportsType">
+    <xs:sequence>
+      <xs:element type="rep:reportType" name="report" maxOccurs="unbounded" minOccurs="0" xmlns:rep="http://openuri.org/reportconfig"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="keywordType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="prefix" use="optional"/>
+        <xs:attribute type="xs:string" name="postfix" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="datasourceType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="driver"/>
+      <xs:element type="xs:string" name="jdbc"/>
+      <xs:element type="xs:string" name="user"/>
+      <xs:element type="xs:string" name="pass"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+</xs:schema>
