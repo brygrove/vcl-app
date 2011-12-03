@@ -5,19 +5,19 @@ import java.util.List;
 
 import com.vcl.application.action.search.EntityDataSearchProvider;
 import com.vcl.application.action.search.EntityDataSearchRequest;
-import com.vcl.application.borrower.BorrowerModel;
+import com.vcl.application.category.CategoryModel;
 import com.vcl.application.control.SearchModel;
-import com.vcl.borrower.Borrower;
-import com.vcl.borrower.BorrowerSearchArg;
-import com.vcl.borrower.BorrowerService;
 import com.vcl.client.VclClient;
+import com.vcl.product.category.Category;
+import com.vcl.product.category.CategorySearchArg;
+import com.vcl.product.category.CategoryService;
 
-public class CategoryDataSearchProvider implements EntityDataSearchProvider<BorrowerModel> {
+public class CategoryDataSearchProvider implements EntityDataSearchProvider<CategoryModel> {
 
-	private BorrowerService borrowerService = VclClient.getServiceLocator().getBorrowerService();
+	private CategoryService categoryService = VclClient.getServiceLocator().getCategoryService();
 	
 	@Override
-	public List<BorrowerModel> searchEntity(EntityDataSearchRequest request) {
+	public List<CategoryModel> searchEntity(EntityDataSearchRequest request) {
 		
 		SearchModel searchModel = request.getSearchModel();
 		String keyword = searchModel.getKeywordText();
@@ -29,22 +29,22 @@ public class CategoryDataSearchProvider implements EntityDataSearchProvider<Borr
 			keywordSearchStr = "%" + keywordSearchStr + "%";
 		}
 		
-		BorrowerSearchArg search = new BorrowerSearchArg();
+		CategorySearchArg search = new CategorySearchArg();
 		search.setKeyword(keywordSearchStr);
 		search.setFirstResult(searchModel.getFirstResult());
 		search.setMaxResult(searchModel.getMaxResults());
 		
-		return createModelList(borrowerService.searchBorrower(search));
+		return createModelList(categoryService.searchCategory(search));
 	}
 	
-	private List<BorrowerModel> createModelList(List<Borrower> borrowers) {
-		List<BorrowerModel> borrowerModels = new ArrayList<BorrowerModel>();
+	private List<CategoryModel> createModelList(List<Category> entities) {
+		List<CategoryModel> models = new ArrayList<CategoryModel>();
 		
-		for (Borrower b : borrowers) {
-			borrowerModels.add(new BorrowerModel(b));
+		for (Category e : entities) {
+			models.add(new CategoryModel(e));
 		}
 		
-		return borrowerModels;
+		return models;
 	}
 
 }

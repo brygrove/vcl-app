@@ -18,23 +18,22 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.part.ViewPart;
 
-import com.vcl.application.action.search.borrower.BorrowerDataSearchProvider;
-import com.vcl.application.action.search.borrower.BorrowerSearchFactory;
+import com.vcl.application.action.search.category.CategoryDataSearchProvider;
+import com.vcl.application.action.search.category.CategorySearchFactory;
 import com.vcl.application.control.DataSearchControl;
 import com.vcl.application.mvc.View;
 import com.vcl.application.validation.toolkit.BindingValidationToolkit;
-import com.vcl.borrower.Borrower;
 import com.vcl.product.category.Category;
 
 public class CategoryView extends ViewPart implements View<Category> {
 	private DataBindingContext m_bindingContext;
 	private BindingValidationToolkit bindingValidationToolkit;
-	public static final String ID = "com.vcl.application.borrower.BorrowerView"; //$NON-NLS-1$
+	public static final String ID = "com.vcl.application.category.CategoryView"; //$NON-NLS-1$
 	private final FormToolkit toolkit = new FormToolkit(Display.getCurrent());
-	private Group grpBorrower;
-	private Label lblBorrowerId;
+	private Group grpCategory;
+	private Label lblCategoryId;
 	private Label validationErrorLabel;
-	private Text txtBorrowerID;
+	private Text txtCategoryID;
 	
 	
 	private WritableValue categoryValue = new WritableValue(); 
@@ -81,47 +80,47 @@ public class CategoryView extends ViewPart implements View<Category> {
 		Composite container = this.toolkit.createComposite(parent, SWT.NONE);
 		this.toolkit.paintBordersFor(container);
 		//TODO 
-		this.grpBorrower = new Group(container, SWT.NONE);
-		this.grpBorrower.setText("Category");
-		this.grpBorrower.setBounds(10, 10, 574, 296);
-		toolkit.adapt(this.grpBorrower);
-		toolkit.paintBordersFor(this.grpBorrower);
+		this.grpCategory = new Group(container, SWT.NONE);
+		this.grpCategory.setText("Category");
+		this.grpCategory.setBounds(10, 10, 574, 296);
+		toolkit.adapt(this.grpCategory);
+		toolkit.paintBordersFor(this.grpCategory);
 		
-		this.lblBorrowerId = new Label(this.grpBorrower, SWT.NONE);
-		this.lblBorrowerId.setText("Category :");
-		this.lblBorrowerId.setBounds(24, 81, 60, 13);
-		toolkit.adapt(this.lblBorrowerId, true, true);
+		this.lblCategoryId = new Label(this.grpCategory, SWT.NONE);
+		this.lblCategoryId.setText("Category :");
+		this.lblCategoryId.setBounds(24, 81, 60, 13);
+		toolkit.adapt(this.lblCategoryId, true, true);
 		
-		this.validationErrorLabel = new Label(this.grpBorrower, SWT.WRAP);
+		this.validationErrorLabel = new Label(this.grpCategory, SWT.WRAP);
 		this.validationErrorLabel.setText("Validation Status:");
 		this.validationErrorLabel.setBounds(150, 133, 263, 78);
 		toolkit.adapt(this.validationErrorLabel, true, true);
 		
-		this.txtBorrowerID = toolkit.createText(this.grpBorrower, "New Text", SWT.NONE);
-		this.txtBorrowerID.setText("");
-		this.txtBorrowerID.setBounds(90, 78, 373, 19);
+		this.txtCategoryID = toolkit.createText(this.grpCategory, "New Text", SWT.NONE);
+		this.txtCategoryID.setText("");
+		this.txtCategoryID.setBounds(90, 78, 373, 19);
 		
-		this.btnCreate = toolkit.createButton(this.grpBorrower, "Create", SWT.NONE);
+		this.btnCreate = toolkit.createButton(this.grpCategory, "Create", SWT.NONE);
 		this.btnCreate.setBounds(200, 235, 68, 23);
 		
-		this.btnNew = toolkit.createButton(this.grpBorrower, "New", SWT.NONE);
+		this.btnNew = toolkit.createButton(this.grpCategory, "New", SWT.NONE);
 		this.btnNew.setBounds(126, 235, 68, 23);
 		
-		this.dataSearchControl = new DataSearchControl(this.grpBorrower, SWT.NONE);
+		this.dataSearchControl = new DataSearchControl(this.grpCategory, SWT.NONE);
 		this.dataSearchControl.setBounds(55, 23, 358, 27);
 		toolkit.adapt(this.dataSearchControl);
 		toolkit.paintBordersFor(this.dataSearchControl);
 		this.dataSearchControl.setModelOwner(this);
 		//TODO 
-		this.dataSearchControl.setEntityDataSearchProvider(new BorrowerDataSearchProvider());
-		this.dataSearchControl.setTableDataModelDataBinding(BorrowerSearchFactory.createTableModelBinding());
+		this.dataSearchControl.setEntityDataSearchProvider(new CategoryDataSearchProvider());
+		this.dataSearchControl.setTableDataModelDataBinding(CategorySearchFactory.createTableModelBinding());
 		
-		this.btnUpdate = toolkit.createButton(this.grpBorrower, "Update", SWT.NONE);
+		this.btnUpdate = toolkit.createButton(this.grpCategory, "Update", SWT.NONE);
 		this.btnUpdate.setBounds(274, 235, 68, 23);
 		
-		this.btnDelete = toolkit.createButton(this.grpBorrower, "Delete", SWT.NONE);
+		this.btnDelete = toolkit.createButton(this.grpCategory, "Delete", SWT.NONE);
 		this.btnDelete.setBounds(348, 235, 68, 23);
-		this.grpBorrower.setTabList(new Control[]{this.txtBorrowerID});
+		this.grpCategory.setTabList(new Control[]{this.txtCategoryID});
 
 		createActions();
 		m_bindingContext = initDataBindings();
@@ -166,9 +165,9 @@ public class CategoryView extends ViewPart implements View<Category> {
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
-		IObservableValue txtBorrowerIDObserveTextObserveWidget = SWTObservables.observeText(txtBorrowerID, SWT.Modify);
-		IObservableValue borrowerValueBorrowIDObserveDetailValue = PojoObservables.observeDetailValue(categoryValue, "catNo", String.class);
-		bindingContext.bindValue(txtBorrowerIDObserveTextObserveWidget, borrowerValueBorrowIDObserveDetailValue, null, null);
+		IObservableValue txtCategoryIDObserveTextObserveWidget = SWTObservables.observeText(txtCategoryID, SWT.Modify);
+		IObservableValue categoryValueCategoryIDObserveDetailValue = PojoObservables.observeDetailValue(categoryValue, "catNo", String.class);
+		bindingContext.bindValue(txtCategoryIDObserveTextObserveWidget, categoryValueCategoryIDObserveDetailValue, null, null);
 		//
 		return bindingContext;
 	}
