@@ -43,7 +43,7 @@ public class CategoryView extends ViewPart implements View<Category> {
 	
 	private CategoryController controller;
 	private DataSearchControl dataSearchControl;
-	private Button btnUpdate;
+	private Button btnRename;
 	private Button btnDelete;
 	
 	public CategoryView() {
@@ -115,8 +115,8 @@ public class CategoryView extends ViewPart implements View<Category> {
 		this.dataSearchControl.setEntityDataSearchProvider(new CategoryDataSearchProvider());
 		this.dataSearchControl.setTableDataModelDataBinding(CategorySearchFactory.createTableModelBinding());
 		
-		this.btnUpdate = toolkit.createButton(this.grpCategory, "Update", SWT.NONE);
-		this.btnUpdate.setBounds(274, 235, 68, 23);
+		this.btnRename = toolkit.createButton(this.grpCategory, "Rename", SWT.NONE);
+		this.btnRename.setBounds(274, 235, 68, 23);
 		
 		this.btnDelete = toolkit.createButton(this.grpCategory, "Delete", SWT.NONE);
 		this.btnDelete.setBounds(348, 235, 68, 23);
@@ -138,7 +138,7 @@ public class CategoryView extends ViewPart implements View<Category> {
 	 */
 	private void createActions() {
 		btnCreate.addSelectionListener(controller.createCreateCategoryAction());
-		btnUpdate.addSelectionListener(controller.createUpdateCategoryAction());
+		btnRename.addSelectionListener(controller.createRenameCategoryAction());
 		btnDelete.addSelectionListener(controller.createDeleteCategoryAction());
 		btnNew.addSelectionListener(controller.createNewCategoryAction());
 		

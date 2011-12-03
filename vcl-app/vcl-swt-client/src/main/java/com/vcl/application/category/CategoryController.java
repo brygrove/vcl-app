@@ -10,6 +10,7 @@ import com.vcl.application.mvc.ModelOwner;
 import com.vcl.client.VclClient;
 import com.vcl.product.category.Category;
 import com.vcl.product.category.CategoryService;
+import com.vcl.util.MessageBoxUtil;
 
 public class CategoryController extends BaseController<CategoryView, Category> {
 	
@@ -24,8 +25,8 @@ public class CategoryController extends BaseController<CategoryView, Category> {
 		return new CreateCategoryAction(getModelOwner());
 	}
 
-	public UpdateCategoryAction createUpdateCategoryAction() {
-		return new UpdateCategoryAction(getModelOwner());
+	public RenameCategoryAction createRenameCategoryAction() {
+		return new RenameCategoryAction(getModelOwner());
 	}
 
 	public EntityNewAction<Category> createNewCategoryAction() {
@@ -84,9 +85,11 @@ public class CategoryController extends BaseController<CategoryView, Category> {
 		}
 	}
 	
-	class UpdateCategoryAction extends UpdateEntityAction<Category> {
-
-		public UpdateCategoryAction(ModelOwner<Category> modelOwner) {
+	class RenameCategoryAction extends UpdateEntityAction<Category> {
+		
+		private String catChangeTo;
+		
+		public RenameCategoryAction(ModelOwner<Category> modelOwner) {
 			super(CATEGORY_NO, modelOwner);
 		}
 
@@ -102,10 +105,19 @@ public class CategoryController extends BaseController<CategoryView, Category> {
 		
 		@Override
 		protected Category doUpdate() {
-			//TODO
-			String catNoFrom = getEntity().getCatNo(); 
-			categoryService.renameCategory(catNoFrom, getEntity().getCatNo());
-			return getEntity();
+			Category category = getEntity();
+			
+			catChangeTo = MessageBoxUtil.showInputBox("Category To Change To");
+			try {
+				categoryService.renameCategory(getEntity().getCatNo(), catChangeTo);
+				category = categoryService.findByCatNo(catChangeTo);
+			}
+			catch(Exception ex) {
+				throw new RuntimeException("Failed to rename category from " 
+						+ getEntity().getCatNo() + " to " + catChangeTo, ex);
+			}
+			
+			return category;
 		}
 	}
 	

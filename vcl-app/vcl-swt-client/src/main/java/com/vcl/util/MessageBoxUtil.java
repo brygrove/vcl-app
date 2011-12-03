@@ -5,6 +5,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 
 import com.vcl.application.VclManagerApplication;
+import com.vcl.util.input.InputDialog;
 
 public class MessageBoxUtil {
 	
@@ -32,6 +33,11 @@ public class MessageBoxUtil {
 		MessageBox msgBox = new MessageBox(getApplicationShell(), style);
 		msgBox.setMessage(msg);
 		return msgBox.open();
+	}
+	
+	public static String showInputBox(String msg) {
+		InputDialog dialog = new InputDialog(getApplicationShell());
+		return dialog.open();
 	}
 	
 }
