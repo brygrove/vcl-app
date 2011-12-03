@@ -25,4 +25,6 @@ public interface CategoryService {
 
 	List<Category> findAllPaged(int firstResult, int maxResult);
 
+	List<Category> searchCategory(CategorySearchArg search);
+
 }

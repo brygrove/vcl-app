@@ -26,9 +26,14 @@ public class CategoryServiceITest extends IntegrationTxnRollbackTestContext {
 		catSteps.createCategory("TEST2");
 		catSteps.createCategory("TEST3");
 
-		Assert.assertTrue(catService.findAllPaged(0, 20).size() == 3);
-		Assert.assertTrue(catService.findIds(0, 20).size() == 3);
-		Assert.assertTrue(catService.findAllIds().size() == 3);
+		Assert.assertEquals(3, catService.findAllPaged(0, 20).size());
+		Assert.assertEquals(3, catService.findIds(0, 20).size());
+		Assert.assertEquals(3, catService.findAllIds().size());
+		
+		CategorySearchArg search = new CategorySearchArg();
+		search.setKeyword("TEST%");
+		
+		Assert.assertEquals(3, catService.searchCategory(search).size());
 		
 		Category c = catService.findByCatNo("TEST1");
 		catService.remove(c);

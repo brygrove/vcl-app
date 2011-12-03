@@ -69,4 +69,9 @@ public class CategoryServiceImpl implements CategoryService {
 		return dao.findAllPaged(firstResult, maxResult);
 	}
 
+	@Override
+	public List<Category> searchCategory(CategorySearchArg search) {
+		return dao.searchCategory(search);
+	}
+
 }
