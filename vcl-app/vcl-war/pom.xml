@@ -10,7 +10,7 @@
 	<name>VCL - WAR</name>
 
 	<properties>
-		<jetty.port>8099</jetty.port>
+		<jetty.port>8080</jetty.port>
 		<!--
 			Define the environment (default is local). Configuration files will
 			be filtered using different properties, depending on the environment.
@@ -95,7 +95,7 @@
 					<!-- do not scan as it takes some time to start up -->
 					<scanIntervalSeconds>0</scanIntervalSeconds>
 					<webAppConfig>
-						<contextPath>/</contextPath>
+						<contextPath>/vcl-app</contextPath>
 					</webAppConfig>
 					<!--
 						use that for post v6 jetty plugin <connectors> <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

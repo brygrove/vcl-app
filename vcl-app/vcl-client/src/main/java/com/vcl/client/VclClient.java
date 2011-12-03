@@ -1,5 +1,7 @@
 package com.vcl.client;
 
+import java.io.File;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,6 +16,11 @@ public class VclClient {
 	
 	private VclServiceLocator serviceLocator; 
 	
+	private static final String CLIENT_PROPS_PATH_SYS_PROP = "CLIENT_PROPS_PATH";
+	private static final String CLIENT_PROPS_FILENAME = "client.properties";
+	private static final String FILE_CLIENT_PROPS_PATH = "file:" + CLIENT_PROPS_FILENAME;
+	private static final String CLASSPATH_CLIENT_PROPS_PATH = "classpath:" + CLIENT_PROPS_FILENAME;
+	
 	private static VclClient instance = new VclClient();
 	
 	private VclClient() {
@@ -21,8 +28,19 @@ public class VclClient {
 	}
 	
 	private void initClientContextAndServiceLocator() {
+		useClientPropertiesAsFileElseClasspathIfFileNotExist();
 		clientContext = new ClassPathXmlApplicationContext(new String[] { VCL_CLIENT_CONFIG_PATH, VCL_CLIENT_BEANS_PATH} );
 		serviceLocator = (VclServiceLocator) clientContext.getBean(VCL_SERVICE_LOCATOR);
+	}
+
+	private void useClientPropertiesAsFileElseClasspathIfFileNotExist() {
+		String clientPropsPath = FILE_CLIENT_PROPS_PATH;
+		
+		if (!new File(CLIENT_PROPS_FILENAME).exists()) {
+			clientPropsPath = CLASSPATH_CLIENT_PROPS_PATH;
+		}
+		
+		System.setProperty(CLIENT_PROPS_PATH_SYS_PROP, clientPropsPath);
 	}
 
 	public static VclClient getInstance() {
