@@ -1,0 +1,238 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+		<groupId>com.vcl</groupId>
+		<artifactId>vcl-app</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+  <artifactId>vcl-core</artifactId>
+  <packaging>jar</packaging>
+  <name>VCL - Core</name>
+  
+  <url>http://maven.apache.org</url>
+
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<hibernateEm.version>3.4.0.GA</hibernateEm.version>
+	<spring.version>3.0.0.RELEASE</spring.version>
+  </properties>
+
+  <dependencies>
+	
+	<!-- spring -->
+	<!-- ============================================================== -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+		<scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	
+	<!--
+		aspectj is needed by spring-security (we use pointcuts to enforce
+		security)
+	-->
+	<!-- 
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-core</artifactId>
+		<version>2.0.5.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>1.6.8</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>1.6.8</version>
+	</dependency>
+ 	-->
+ 
+	<!-- use standard JSR-330 for declaring injection -->
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version>
+	</dependency>
+	
+	<!-- DB Connection Pool Apache -->
+	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<!-- used to be 1.2.1 -->
+		<version>1.4</version>
+	</dependency>
+	
+	
+	<!-- Hibernate --> 
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernateEm.version}</version>
+    </dependency>
+
+
+	<!-- Eh Cache -->
+    <dependency>
+       <groupId>net.sf.ehcache</groupId>
+       <artifactId>ehcache-core</artifactId>
+       <version>2.2.0</version>
+    </dependency>
+
+	
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<version>3.2.1</version>
+		<scope>runtime</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.11</version>
+		<scope>runtime</scope>
+	</dependency>
+
+	<!--
+		For testing but we need a runtime scope since we might want to launch
+		the server with hsql locally.
+	-->
+	<dependency>
+		<groupId>org.hsqldb</groupId>
+		<artifactId>hsqldb</artifactId>
+		<version>1.8.0.10</version>
+		<scope>runtime</scope>
+	</dependency>
+	
+	<!-- JASYPT security library for creating password digests. -->
+	<!--
+	<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>1.7</version>
+			<scope>compile</scope>
+	</dependency>
+	-->
+
+	<!-- apache commons -->
+	<!-- ============================================================== -->
+	<dependency>
+		<groupId>commons-lang</groupId>
+		<artifactId>commons-lang</artifactId>
+		<version>2.4</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>1.4</version>
+	</dependency>
+	
+	
+	<!-- logging -->
+	<!-- ============================================================== -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.15</version>
+		<!--
+			starting with J2SE 5.0, JMX is included in the platform see
+			http://java.sun.com/javase/technologies/core/mntr-mgmt/javamanagement/
+		-->
+		<exclusions>
+			<exclusion>
+				<groupId>com.sun.jdmk</groupId>
+				<artifactId>jmxtools</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>com.sun.jmx</groupId>
+				<artifactId>jmxri</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<!--
+		Slf4j is used by Hibernate Note : make sure slf4j binders and api
+		have same version number.
+	-->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.5.10</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>1.5.10</version>
+		<scope>runtime</scope>
+	</dependency>
+	<!-- common logging is used by spring and our app -->
+	<!--
+		This dependency is not really needed as we get it transitively from
+		Spring. Declaring it here forces the version number to be 1.1.1
+		rather than 1.0.2 and outline the fact we are using in the
+		application.
+	-->
+	<dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+
+	
+	<!-- AOP Deps --> 
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib-nodep</artifactId>
+		<version>2.2</version>
+	</dependency>
+
+	<dependency>
+		<groupId>antlr</groupId>
+		<artifactId>antlr</artifactId>
+		<version>2.7.7</version>
+    </dependency>
+    
+	<dependency>
+		<groupId>org.antlr</groupId>
+		<artifactId>antlr</artifactId>
+		<version>3.0.1</version>
+   </dependency>
+
+
+  </dependencies>
+
+ <!-- 
+ <repositories>
+    <repository>
+      <id>repository.jboss.org-public</id>
+      <name>JBoss repository</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public</url>
+    </repository>
+  </repositories>
+  --> 
+</project>

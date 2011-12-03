@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- set attribute debug to "true" in log4j:configuration for more insight -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" >
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] - %m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="APP" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/var/log/groveworks/app.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="AUDIT" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/var/log/groveworks/audit.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="HIBERNATE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/var/log/groveworks/hibernate.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="SPRING" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/var/log/groveworks/spring.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+		</layout>
+	</appender>
+	
+	<!-- Categories and loggers -->
+	<!-- ======================================================================== -->
+	
+
+	<!-- APP -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<category name="com.vcl">	
+		<priority value="DEBUG"/>
+		<appender-ref ref="APP" />
+	</category>
+
+	<!-- Hibernate -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<logger name="org.hibernate.cfg.Environment">
+		<level value="INFO"/>
+	</logger>
+
+	<category name="org.hibernate">
+		<priority value="INFO"/>
+		<appender-ref ref="HIBERNATE"/>
+	</category>
+ 	
+ 	<category name="org.hibernate.type">
+		<priority value="WARN"/>
+		<appender-ref ref="STDOUT"/>
+	</category>
+ 	
+	<!-- don't pollute stdout with not so useful WARNs -->
+	<logger name="org.hibernate.cache.EhCacheProvider" additivity="false">
+		<appender-ref ref="HIBERNATE"/>
+	</logger>
+
+	<!-- Jasper Reports -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<category name="net.sf.jasperreports">
+		<priority value="DEBUG"/>
+		<appender-ref ref="APP"/>
+	</category>
+
+
+	<!-- Spring -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<category name="org.springframework" additivity="true">
+		<priority value="INFO"/>
+	</category>
+		
+	<!-- 
+		TODO fix the warn : 
+		[org.springframework.aop.framework.Cglib2AopProxy] - Unable to proxy method [public final void org.springframework.orm.hibernate3.support.HibernateDaoSupport.setSessionFactory(org.hibernate.SessionFactory)] 
+		because it is final: All calls to this method via a proxy will be routed directly to the proxy.	
+	-->
+	<logger name="org.springframework.aop.framework.Cglib2AopProxy">		
+		<level value="FATAL"/>
+	</logger>
+	
+	
+	<!-- info logs are not relevant -->
+	<logger name="org.springframework.web.servlet.DispatcherServlet">
+		<level value="WARN"/>
+	</logger>
+
+	<!-- Root -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<root>
+		<priority value="WARN"/>
+		<appender-ref ref="STDOUT"/>
+	</root>
+
+</log4j:configuration>

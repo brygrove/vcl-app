@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.vcl</groupId>
+		<artifactId>vcl-app</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>vcl-swt-client</artifactId>
+	<packaging>jar</packaging>
+	<name>VCL - SWT Client Application</name>
+
+	<properties>
+		<env>local</env>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.vcl</groupId>
+			<artifactId>vcl-client</artifactId>	
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.library</groupId>
+			<artifactId>swt-win32-deps</artifactId>
+			<version>3.6</version>
+			<type>pom</type>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<resources>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			 
+			 <plugin>
+				   <groupId>org.apache.maven.plugins</groupId>
+				   <artifactId>maven-resources-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<id>copy-external-resources</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>target/</outputDirectory>
+									<resources>
+									   <resource>
+											   <directory>batch</directory>
+											   <filtering>true</filtering>
+											   <includes>
+												  <include> **/*.cmd </include>
+											   </includes>
+									   </resource>
+									   <resource>
+											   <directory>src/main/resources</directory>
+											   <filtering>true</filtering>
+											   <includes>
+												  <include>client.properties</include>
+											   </includes>
+									   </resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+			  </plugin>
+
+			  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+				  <archive>
+					<manifest>
+					  <addClasspath>true</addClasspath>
+					  <mainClass>com.vcl.application.VclManagerApplication</mainClass>
+					  <classpathPrefix>lib/</classpathPrefix>
+					</manifest>
+				  </archive>
+				</configuration>
+			  </plugin>
+			  
+			  <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.3</version>
+					<executions>
+					  <execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+						  <goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<outputDirectory>target/lib</outputDirectory>
+							<stripVersion>false</stripVersion>
+						</configuration>
+					  </execution>
+					</executions>
+			  </plugin>
+	       
+		</plugins>
+	</build>
+
+</project>

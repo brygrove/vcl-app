@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"  
+     >
+	
+	<bean name="/ProductService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" >
+		<property name="serviceInterface" value="com.vcl.product.ProductService" />
+		<property name="service" ref="productServiceImpl" />
+	</bean>
+	
+	<bean name="/CategoryService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" >
+		<property name="serviceInterface" value="com.vcl.product.category.CategoryService" />
+		<property name="service" ref="categoryServiceImpl" />
+	</bean>
+	
+	<bean name="/BorrowerService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" >
+		<property name="serviceInterface" value="com.vcl.borrower.BorrowerService" />
+		<property name="service" ref="borrowerServiceImpl" />
+	</bean>
+	
+	<bean name="/InventoryService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" >
+		<property name="serviceInterface" value="com.vcl.product.inventory.InventoryService" />
+		<property name="service" ref="inventoryServiceImpl" />
+	</bean>
+	
+	<bean name="/LostDamagedStolenService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" >
+		<property name="serviceInterface" value="com.vcl.product.lostdamagedstolen.LostDamagedStolenService" />
+		<property name="service" ref="lostDamagedStolenServiceImpl" />
+	</bean>
+	 
+</beans>

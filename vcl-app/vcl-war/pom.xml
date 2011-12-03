@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.vcl</groupId>
+		<artifactId>vcl-app</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>vcl-war</artifactId>
+	<packaging>war</packaging>
+	<name>VCL - WAR</name>
+
+	<properties>
+		<jetty.port>8099</jetty.port>
+		<!--
+			Define the environment (default is local). Configuration files will
+			be filtered using different properties, depending on the environment.
+			You can change the environment by overriding this property. Ex: mvn
+			-Denv=prod jetty:run
+		-->
+		<env>local</env>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!--  modules dependencies  -->
+		<dependency>
+			<groupId>com.vcl</groupId>
+			<artifactId>vcl-core</artifactId>
+		</dependency>
+		
+		<!-- include test code for the spring validator test to run successfully -->
+		<dependency>
+			<groupId>com.vcl</groupId>
+			<artifactId>vcl-core</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+		
+
+		<!-- Specify servlet dep ) -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<!--
+				we have to explicitely add servlet dependency as it is not
+				transitive (therefore we don't get it through spring-web dependency)
+				See
+				http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope
+			-->
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			
+			<resource>
+				<directory>src/main/config/database/${env}</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			
+			<resource>
+				<directory>src/main/config/app/${env}</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		
+		</resources>
+		
+		<plugins>
+			
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>vcl-app</warName>	
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.22</version>
+				<configuration>
+					<webApp>${project.build.directory}/vcl-app.war</webApp>	
+					<!-- do not scan as it takes some time to start up -->
+					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<webAppConfig>
+						<contextPath>/</contextPath>
+					</webAppConfig>
+					<!--
+						use that for post v6 jetty plugin <connectors> <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+						<port>${jetty.port}</port> </connector> </connectors>
+					-->
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>${jetty.port}</port>
+							<!-- <maxIdleTime>0</maxIdleTime> --> 
+						</connector>
+					</connectors>
+				</configuration>
+		 		
+			</plugin>
+
+			
+		</plugins>
+	</build>
+
+</project>

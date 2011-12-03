@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+	<display-name>VCL</display-name>
+	<description>Victory Community Library Services</description>
+
+	<!--
+		- Location of the XML file that defines the root application context -
+		Applied by ContextLoaderListener.
+	-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>		
+		<param-value>
+			classpath:/spring/spring-db-config.xml
+			classpath:/spring/spring-business.xml
+		</param-value>
+	</context-param>
+
+	<!--
+		Loads the root application context of this web app at startup. - The
+		application context is then available via
+		WebApplicationContextUtils.getWebApplicationContext(servletContext).
+	-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!--
+		The front controller of this Spring Web application, responsible for
+		handling all application requests
+	-->
+	<!-- 
+	<servlet>
+		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+ 	-->
+ 
+
+	<servlet>
+	    <servlet-name>remoting</servlet-name>
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	    <load-on-startup/>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>remoting</servlet-name>
+	    <url-pattern>/remoting/*</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>45</session-timeout>
+	</session-config>
+</web-app>
