@@ -8,7 +8,7 @@ import com.vcl.product.category.CategoryService;
 import com.vcl.product.inventory.InventoryService;
 import com.vcl.product.lostdamagedstolen.LostDamagedStolenService;
 
-public class VclClientTest {
+public class VclClientITest {
 	
 	@Test
 	public void testFindAllProductsPaged() {

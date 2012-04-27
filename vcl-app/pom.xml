@@ -180,7 +180,8 @@
 		
 					<execution>
 						<id>it-test</id>
-						<phase>integration-test</phase>
+						<!-- <phase>integration-test</phase> -->
+						<phase>deploy</phase>
 						<goals>
 							<goal>test</goal>
 						</goals>
