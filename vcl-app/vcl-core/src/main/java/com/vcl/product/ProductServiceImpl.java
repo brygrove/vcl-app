@@ -80,4 +80,9 @@ public class ProductServiceImpl implements ProductService {
 		return dao.findByCategoryNum(catNo, firstResult, maxResult);
 	}
 
+	@Override
+	public List<Product> searchProducts(ProductSearchArg prodSearch) {
+		return dao.searchProducts(prodSearch);
+	}
+
 }

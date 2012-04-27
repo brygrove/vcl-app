@@ -22,4 +22,5 @@ public interface ProductService {
 
 	List<Product> findByCategoryNum(String catNo, int firstResult, int maxResult);
 
+	List<Product> searchProducts(ProductSearchArg prodSearch);
 }

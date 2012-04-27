@@ -15,11 +15,15 @@ public class ProductServiceSteps {
 	@Inject
 	private ProductService prodService;
 	
-	public void createProduct(String indexNo, Category category) {
+	public Product createProduct(String indexNo, Category category) {
 		Product p = new Product();
 		p.setIndexNo(indexNo);
 		p.setCategory(category);
-		prodService.persist(p);
+		return prodService.persist(p);
+	}
+	
+	public Product createProduct(Product prod) {
+		return prodService.persist(prod);
 	}
 	
 	public Product findByIndexNo(String indexNo, ProductRelationshipFetchType... fetchTypes) {
