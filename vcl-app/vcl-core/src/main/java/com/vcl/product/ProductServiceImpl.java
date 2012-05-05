@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ProductServiceImpl implements ProductService {
 
+	private Log log = LogFactory.getLog(ProductServiceImpl.class);
+	
 	@Inject
 	private ProductDao dao;
 
@@ -82,7 +86,18 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> searchProducts(ProductSearchArg prodSearch) {
-		return dao.searchProducts(prodSearch);
+		List<Product> products; 
+		if (log.isDebugEnabled()) {
+			log.debug("START searchProducts : " + prodSearch);
+		}
+		
+		products = dao.searchProducts(prodSearch);
+		
+		if (log.isDebugEnabled()) {
+			log.debug("END searchProducts : " + prodSearch + 
+					". Return products size: " + products.size());
+		}
+		return products;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.vcl.client;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 import com.vcl.borrower.BorrowerService;
@@ -13,7 +15,7 @@ public class VclClientITest {
 	@Test
 	public void testFindAllProductsPaged() {
 		ProductService service = VclClient.getServiceLocator().getProductService();
-		service.findAllPaged(0, 50);
+		Assert.assertTrue(service.findAllPaged(0, 50).size() > 0);
 	}
 	
 	@Test

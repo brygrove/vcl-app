@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
+import com.vcl.application.action.search.DialogConfig;
 import com.vcl.application.action.search.EntityDataSearchProvider;
 import com.vcl.application.action.search.SearchEntityAction;
 import com.vcl.application.action.search.SearchEntityConfig;
@@ -65,7 +66,14 @@ public class DataSearchControl extends Composite {
 	public void setTableDataModelDataBinding(TableDataModelBinding tableDataModelBinding) {
 		searchEntityConfig.setTableModelDataBinding(tableDataModelBinding);
 	}
-
+	
+	public void setDialogConfig(DialogConfig dlgcfg) {
+		searchEntityConfig.setDialogConfig(dlgcfg);
+	}
+	
+	public DialogConfig getDialogConfig() {
+		return searchEntityConfig.getDialogConfig();
+	}
 
 	private void initialize() {
 		addDisposeListener(new DisposeListener() {

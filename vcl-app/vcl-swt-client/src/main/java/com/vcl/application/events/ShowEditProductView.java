@@ -4,7 +4,8 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import com.vcl.application.ApplicationResources;
-import com.vcl.util.MessageBoxUtil;
+import com.vcl.application.product.ProductController;
+import com.vcl.application.product.ProductView;
 
 public class ShowEditProductView extends SelectionAdapter {
 
@@ -18,6 +19,9 @@ public class ShowEditProductView extends SelectionAdapter {
 	
 	@Override
 	public void widgetSelected(SelectionEvent e) {
-		MessageBoxUtil.showInformation("This feature is not implemented.");
+		ProductView view = new ProductView();
+		ProductController controller = new ProductController();
+		view.setController(controller);
+		appResources.addViewPartTab("Product", view);
 	}
 }

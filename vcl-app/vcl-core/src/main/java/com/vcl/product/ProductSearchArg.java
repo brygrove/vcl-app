@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ProductSearchArg implements Serializable {
 	
-	private static final long serialVersionUID = 2964708267991175876L;
+	private static final long serialVersionUID = -2657060771989961169L;
 
 	private String keyword;
 	

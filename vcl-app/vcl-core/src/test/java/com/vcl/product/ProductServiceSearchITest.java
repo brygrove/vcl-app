@@ -26,7 +26,6 @@ public class ProductServiceSearchITest extends IntegrationTxnRollbackTestContext
 	public void setup() {
 		Category cat1 = categorySteps.createCategory("CAT1");
 		Category cat2 = categorySteps.createCategory("CAT2");
-		Category cat3 = categorySteps.createCategory("CAT3");
 		
 		prodSteps.createProduct(new ProductBuilder()
 			.setIndexNo("A01234")
@@ -58,7 +57,6 @@ public class ProductServiceSearchITest extends IntegrationTxnRollbackTestContext
 		
 		prodSteps.createProduct(new ProductBuilder()
 			.setIndexNo("A00110")
-			.setCategory(cat3)
 			.setTitle("Jesus Lord of Lords")
 			.setSubTitle("First Edition")
 			.setAuthor("Grace Barusto")
@@ -68,13 +66,16 @@ public class ProductServiceSearchITest extends IntegrationTxnRollbackTestContext
 	
 	
 	@Test
-	public void testSearchProducts() {
+	public void testSearchProducts_FindByKeyword() {
 		
 		assertKeywordFindsProductCount(
 				createSearch("Jesus King of Kings"), 1);
 		
 		assertKeywordFindsProductCount(
 				createSearch("%Jesus%"), 4);
+		
+		assertKeywordFindsProductCount(
+				createSearch("%CAT1%"), 2);
 		
 		assertKeywordFindsProductCount(
 				createSearch("Second Edition"), 1);

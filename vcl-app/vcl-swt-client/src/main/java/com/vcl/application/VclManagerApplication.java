@@ -90,7 +90,7 @@ public class VclManagerApplication implements ApplicationResources {
 		this.mntmExit.addSelectionListener(globalAppEvents.getExitAppEvent());
 		this.linkViewBorrowerMgr.addSelectionListener(globalAppEvents.getShowEditBorrowerView());
 		this.linkViewCategoryMgr.addSelectionListener(globalAppEvents.getShowEditCategoryView());
-		
+		this.linkViewProductMgr.addSelectionListener(globalAppEvents.getShowEditProductView());
 	}
 
 	private Menu menu; 

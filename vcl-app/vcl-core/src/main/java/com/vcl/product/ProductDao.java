@@ -27,7 +27,7 @@ public class ProductDao extends JpaDao<Product, String> {
 	private static final String OR = "OR ";
 	
 	private static final String FIND_BY_PRODUCT_SEARCH = 
-		"SELECT P FROM Product p JOIN p.category c " + 
+		"SELECT P FROM Product p LEFT JOIN p.category c " + 
 		"WHERE '1' = '1'  ";
 	
 	private static final String FILTER_BY_INDEXNO_KEYWORD = "( p.indexNo LIKE :indexNoKeyword ) ";

@@ -5,19 +5,19 @@ import java.util.List;
 
 import com.vcl.application.action.search.EntityDataSearchProvider;
 import com.vcl.application.action.search.EntityDataSearchRequest;
-import com.vcl.application.borrower.BorrowerModel;
 import com.vcl.application.control.SearchModel;
-import com.vcl.borrower.Borrower;
-import com.vcl.borrower.BorrowerSearchArg;
-import com.vcl.borrower.BorrowerService;
+import com.vcl.application.product.ProductModel;
 import com.vcl.client.VclClient;
+import com.vcl.product.Product;
+import com.vcl.product.ProductSearchArg;
+import com.vcl.product.ProductService;
 
-public class ProductDataSearchProvider implements EntityDataSearchProvider<BorrowerModel> {
+public class ProductDataSearchProvider implements EntityDataSearchProvider<ProductModel> {
 
-	private BorrowerService borrowerService = VclClient.getServiceLocator().getBorrowerService();
+	private ProductService productService = VclClient.getServiceLocator().getProductService();
 	
 	@Override
-	public List<BorrowerModel> searchEntity(EntityDataSearchRequest request) {
+	public List<ProductModel> searchEntity(EntityDataSearchRequest request) {
 		
 		SearchModel searchModel = request.getSearchModel();
 		String keyword = searchModel.getKeywordText();
@@ -29,22 +29,22 @@ public class ProductDataSearchProvider implements EntityDataSearchProvider<Borro
 			keywordSearchStr = "%" + keywordSearchStr + "%";
 		}
 		
-		BorrowerSearchArg search = new BorrowerSearchArg();
+		ProductSearchArg search = new ProductSearchArg();
 		search.setKeyword(keywordSearchStr);
 		search.setFirstResult(searchModel.getFirstResult());
 		search.setMaxResult(searchModel.getMaxResults());
 		
-		return createModelList(borrowerService.searchBorrower(search));
+		return createModelList(productService.searchProducts(search));
 	}
 	
-	private List<BorrowerModel> createModelList(List<Borrower> borrowers) {
-		List<BorrowerModel> borrowerModels = new ArrayList<BorrowerModel>();
+	private List<ProductModel> createModelList(List<Product> products) {
+		List<ProductModel> models = new ArrayList<ProductModel>();
 		
-		for (Borrower b : borrowers) {
-			borrowerModels.add(new BorrowerModel(b));
+		for (Product p : products) {
+			models.add(new ProductModel(p));
 		}
 		
-		return borrowerModels;
+		return models;
 	}
 
 }

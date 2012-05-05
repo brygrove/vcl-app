@@ -20,6 +20,8 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.vcl.application.action.search.borrower.BorrowerDataSearchProvider;
 import com.vcl.application.action.search.borrower.BorrowerSearchFactory;
+import com.vcl.application.action.search.product.ProductDataSearchProvider;
+import com.vcl.application.action.search.product.ProductSearchFactory;
 import com.vcl.application.control.DataSearchControl;
 import com.vcl.application.mvc.View;
 import com.vcl.application.validation.toolkit.BindingValidationToolkit;
@@ -37,7 +39,7 @@ public class ProductView extends ViewPart implements View<Product> {
 	private Text txtIndexNo;
 	
 	
-	private WritableValue borrowerValue = new WritableValue(); 
+	private WritableValue productValue = new WritableValue(); 
 	
 	private Button btnCreate;
 	private Button btnNew;
@@ -46,6 +48,10 @@ public class ProductView extends ViewPart implements View<Product> {
 	private DataSearchControl dataSearchControl;
 	private Button btnUpdate;
 	private Button btnDelete;
+	private Label lblTitle;
+	private Text txtTitle;
+	private Label lblSubTitle;
+	private Text txtSubTitle;
 	
 	public ProductView() {
 		setPartName("Product");
@@ -54,12 +60,12 @@ public class ProductView extends ViewPart implements View<Product> {
 
 	@Override
 	public Product getModel() {
-		return (Product) borrowerValue.getValue();
+		return (Product) productValue.getValue();
 	}
 
 	@Override
 	public void setModel(Product model) {
-		borrowerValue.setValue(model);
+		productValue.setValue(model);
 	}
 	
 	@Override
@@ -89,7 +95,7 @@ public class ProductView extends ViewPart implements View<Product> {
 		
 		this.lblIndexNo = new Label(this.grpMain, SWT.NONE);
 		this.lblIndexNo.setText("Index No :");
-		this.lblIndexNo.setBounds(55, 81, 89, 13);
+		this.lblIndexNo.setBounds(55, 59, 89, 13);
 		toolkit.adapt(this.lblIndexNo, true, true);
 		
 		this.validationErrorLabel = new Label(this.grpMain, SWT.WRAP);
@@ -99,7 +105,7 @@ public class ProductView extends ViewPart implements View<Product> {
 		
 		this.txtIndexNo = toolkit.createText(this.grpMain, "New Text", SWT.NONE);
 		this.txtIndexNo.setText("");
-		this.txtIndexNo.setBounds(150, 78, 203, 19);
+		this.txtIndexNo.setBounds(150, 56, 203, 19);
 		
 		this.btnCreate = toolkit.createButton(this.grpMain, "Create", SWT.NONE);
 		this.btnCreate.setBounds(197, 402, 68, 23);
@@ -112,14 +118,32 @@ public class ProductView extends ViewPart implements View<Product> {
 		toolkit.adapt(this.dataSearchControl);
 		toolkit.paintBordersFor(this.dataSearchControl);
 		this.dataSearchControl.setModelOwner(this);
-		this.dataSearchControl.setEntityDataSearchProvider(new BorrowerDataSearchProvider());
-		this.dataSearchControl.setTableDataModelDataBinding(BorrowerSearchFactory.createTableModelBinding());
+		this.dataSearchControl.setEntityDataSearchProvider(new ProductDataSearchProvider());
+		this.dataSearchControl.setTableDataModelDataBinding(ProductSearchFactory.createTableModelBinding());
 		
 		this.btnUpdate = toolkit.createButton(this.grpMain, "Update", SWT.NONE);
 		this.btnUpdate.setBounds(271, 402, 68, 23);
 		
 		this.btnDelete = toolkit.createButton(this.grpMain, "Delete", SWT.NONE);
 		this.btnDelete.setBounds(345, 402, 68, 23);
+		
+		this.lblTitle = new Label(this.grpMain, SWT.NONE);
+		this.lblTitle.setText("Title :");
+		this.lblTitle.setBounds(55, 81, 89, 13);
+		toolkit.adapt(this.lblTitle, true, true);
+		
+		this.txtTitle = new Text(this.grpMain, SWT.BORDER);
+		this.txtTitle.setBounds(150, 78, 329, 19);
+		toolkit.adapt(this.txtTitle, true, true);
+		
+		this.lblSubTitle = new Label(this.grpMain, SWT.NONE);
+		this.lblSubTitle.setText("Sub Title :");
+		this.lblSubTitle.setBounds(55, 106, 89, 13);
+		toolkit.adapt(this.lblSubTitle, true, true);
+		
+		this.txtSubTitle = new Text(this.grpMain, SWT.BORDER);
+		this.txtSubTitle.setBounds(150, 103, 329, 19);
+		toolkit.adapt(this.txtSubTitle, true, true);
 		this.grpMain.setTabList(new Control[]{this.txtIndexNo});
 
 		createActions();
@@ -165,9 +189,17 @@ public class ProductView extends ViewPart implements View<Product> {
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
-		IObservableValue txtBorrowerIDObserveTextObserveWidget = SWTObservables.observeText(txtIndexNo, SWT.Modify);
-		IObservableValue borrowerValueBorrowIDObserveDetailValue = PojoObservables.observeDetailValue(borrowerValue, "borrowID", String.class);
-		bindingContext.bindValue(txtBorrowerIDObserveTextObserveWidget, borrowerValueBorrowIDObserveDetailValue, null, null);
+		IObservableValue txtIDObserveTextObserveWidget = SWTObservables.observeText(txtIndexNo, SWT.Modify);
+		IObservableValue produtValueIDObserveDetailValue = PojoObservables.observeDetailValue(productValue, "indexNo", String.class);
+		bindingContext.bindValue(txtIDObserveTextObserveWidget, produtValueIDObserveDetailValue, null, null);
+		//
+		IObservableValue txtTitleObserveTextObserveWidget_1 = SWTObservables.observeText(txtTitle, SWT.Modify);
+		IObservableValue productValueTitleObserveDetailValue = PojoObservables.observeDetailValue(productValue, "title", String.class);
+		bindingContext.bindValue(txtTitleObserveTextObserveWidget_1, productValueTitleObserveDetailValue, null, null);
+		//
+		IObservableValue txtSubTitleObserveTextObserveWidget = SWTObservables.observeText(txtSubTitle, SWT.Modify);
+		IObservableValue productValueSubTitleObserveDetailValue = PojoObservables.observeDetailValue(productValue, "subTitle", String.class);
+		bindingContext.bindValue(txtSubTitleObserveTextObserveWidget, productValueSubTitleObserveDetailValue, null, null);
 		//
 		return bindingContext;
 	}

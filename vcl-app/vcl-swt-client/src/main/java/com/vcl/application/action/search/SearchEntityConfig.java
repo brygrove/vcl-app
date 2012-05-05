@@ -10,7 +10,8 @@ public class SearchEntityConfig {
 	private SearchModel searchModel;
 	private EntityDataSearchProvider entityDataSearchProvider;
 	private TableDataModelBinding tableModelDataBinding;
-
+	private DialogConfig dialogConfig = DialogConfig.createDefaultEntitySearchDlgCfg();
+	
 	public SearchModel getSearchModel() {
 		return searchModel;
 	}
@@ -35,4 +36,13 @@ public class SearchEntityConfig {
 		this.tableModelDataBinding = tableModelDataBinding;
 	}
 
+	public DialogConfig getDialogConfig() {
+		return dialogConfig;
+	}
+
+	public void setDialogConfig(DialogConfig dialogConfig) {
+		this.dialogConfig = dialogConfig;
+	}
+
+	
 }

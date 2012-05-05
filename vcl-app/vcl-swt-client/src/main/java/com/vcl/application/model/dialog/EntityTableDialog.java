@@ -36,11 +36,10 @@ import com.vcl.application.model.table.TableDataModelBinding;
 public class EntityTableDialog extends Dialog {
 	private DataBindingContext m_bindingContext;
 
-	private static final int TABLE_WIDTH = 600;
-	private static final int TABLE_HEIGHT = 360;
-	private static final int DLG_WIDTH = 620;
-	private static final int DLG_HEIGHT = 480;
-	
+	public static final int TABLE_WIDTH = 600;
+	public static final int TABLE_HEIGHT = 360;
+	public static final int DLG_WIDTH = 620;
+	public static final int DLG_HEIGHT = 480;
 	
 	protected Object result;
 	protected Shell shell;
@@ -112,7 +111,7 @@ public class EntityTableDialog extends Dialog {
 	 * Create contents of the dialog.
 	 */
 	private void initialize() {
-		this.shell = new Shell(getParent(), getStyle());
+		this.shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.RESIZE);
 		this.shell.setSize(DLG_WIDTH, DLG_HEIGHT);
 		this.shell.setText(getText());
 		
@@ -141,7 +140,7 @@ public class EntityTableDialog extends Dialog {
 		this.table = builder.build();
 		this.tableViewer = builder.getTableViewer();
 		this.table.setBounds(10, 45, TABLE_WIDTH, TABLE_HEIGHT);
-		
+	
 		m_bindingContext = initDataBindings();
 		
 		initEvents();
