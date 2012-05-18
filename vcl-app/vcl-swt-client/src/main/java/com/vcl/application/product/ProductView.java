@@ -52,6 +52,10 @@ public class ProductView extends ViewPart implements View<Product> {
 	private Text txtTitle;
 	private Label lblSubTitle;
 	private Text txtSubTitle;
+	private Label lblAuthor;
+	private Text txtAuthor;
+	private Label lblIsbn;
+	private Text txtISBN;
 	
 	public ProductView() {
 		setPartName("Product");
@@ -100,7 +104,7 @@ public class ProductView extends ViewPart implements View<Product> {
 		
 		this.validationErrorLabel = new Label(this.grpMain, SWT.WRAP);
 		this.validationErrorLabel.setText("Validation Status:");
-		this.validationErrorLabel.setBounds(150, 301, 263, 78);
+		this.validationErrorLabel.setBounds(123, 367, 290, 37);
 		toolkit.adapt(this.validationErrorLabel, true, true);
 		
 		this.txtIndexNo = toolkit.createText(this.grpMain, "New Text", SWT.NONE);
@@ -108,10 +112,10 @@ public class ProductView extends ViewPart implements View<Product> {
 		this.txtIndexNo.setBounds(150, 56, 203, 19);
 		
 		this.btnCreate = toolkit.createButton(this.grpMain, "Create", SWT.NONE);
-		this.btnCreate.setBounds(197, 402, 68, 23);
+		this.btnCreate.setBounds(197, 410, 68, 23);
 		
 		this.btnNew = toolkit.createButton(this.grpMain, "New", SWT.NONE);
-		this.btnNew.setBounds(123, 402, 68, 23);
+		this.btnNew.setBounds(123, 410, 68, 23);
 		
 		this.dataSearchControl = new DataSearchControl(this.grpMain, SWT.NONE);
 		this.dataSearchControl.setBounds(55, 23, 358, 27);
@@ -122,10 +126,10 @@ public class ProductView extends ViewPart implements View<Product> {
 		this.dataSearchControl.setTableDataModelDataBinding(ProductSearchFactory.createTableModelBinding());
 		
 		this.btnUpdate = toolkit.createButton(this.grpMain, "Update", SWT.NONE);
-		this.btnUpdate.setBounds(271, 402, 68, 23);
+		this.btnUpdate.setBounds(271, 410, 68, 23);
 		
 		this.btnDelete = toolkit.createButton(this.grpMain, "Delete", SWT.NONE);
-		this.btnDelete.setBounds(345, 402, 68, 23);
+		this.btnDelete.setBounds(345, 410, 68, 23);
 		
 		this.lblTitle = new Label(this.grpMain, SWT.NONE);
 		this.lblTitle.setText("Title :");
@@ -144,6 +148,24 @@ public class ProductView extends ViewPart implements View<Product> {
 		this.txtSubTitle = new Text(this.grpMain, SWT.BORDER);
 		this.txtSubTitle.setBounds(150, 103, 329, 19);
 		toolkit.adapt(this.txtSubTitle, true, true);
+		
+		this.lblAuthor = new Label(this.grpMain, SWT.NONE);
+		this.lblAuthor.setText("Author :");
+		this.lblAuthor.setBounds(55, 133, 89, 13);
+		toolkit.adapt(this.lblAuthor, true, true);
+		
+		this.txtAuthor = new Text(this.grpMain, SWT.BORDER);
+		this.txtAuthor.setBounds(150, 130, 279, 19);
+		toolkit.adapt(this.txtAuthor, true, true);
+		
+		this.lblIsbn = new Label(this.grpMain, SWT.NONE);
+		this.lblIsbn.setText("ISBN :");
+		this.lblIsbn.setBounds(55, 159, 89, 13);
+		toolkit.adapt(this.lblIsbn, true, true);
+		
+		this.txtISBN = new Text(this.grpMain, SWT.BORDER);
+		this.txtISBN.setBounds(150, 156, 279, 19);
+		toolkit.adapt(this.txtISBN, true, true);
 		this.grpMain.setTabList(new Control[]{this.txtIndexNo});
 
 		createActions();
@@ -200,6 +222,14 @@ public class ProductView extends ViewPart implements View<Product> {
 		IObservableValue txtSubTitleObserveTextObserveWidget = SWTObservables.observeText(txtSubTitle, SWT.Modify);
 		IObservableValue productValueSubTitleObserveDetailValue = PojoObservables.observeDetailValue(productValue, "subTitle", String.class);
 		bindingContext.bindValue(txtSubTitleObserveTextObserveWidget, productValueSubTitleObserveDetailValue, null, null);
+		//
+		IObservableValue txtAuthorObserveTextObserveWidget = SWTObservables.observeText(txtAuthor, SWT.Modify);
+		IObservableValue productValueAuthorObserveDetailValue = PojoObservables.observeDetailValue(productValue, "author", String.class);
+		bindingContext.bindValue(txtAuthorObserveTextObserveWidget, productValueAuthorObserveDetailValue, null, null);
+		//
+		IObservableValue txtISBNObserveTextObserveWidget = SWTObservables.observeText(txtISBN, SWT.Modify);
+		IObservableValue productValueIsbnObserveDetailValue = PojoObservables.observeDetailValue(productValue, "isbn", String.class);
+		bindingContext.bindValue(txtISBNObserveTextObserveWidget, productValueIsbnObserveDetailValue, null, null);
 		//
 		return bindingContext;
 	}
