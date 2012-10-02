@@ -1,4 +1,4 @@
 vcl-app
 =======
 
-Victory Community Library App
+Victory Church Community Library App
