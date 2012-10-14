@@ -1,1 +1,1 @@
-This is the Victory Community Library software for Diane Stones
+This is the Victory Community Library software for Diane Stones.
