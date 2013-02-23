@@ -142,7 +142,7 @@
 					Up to now (2.8) the filtering section makes the plugin to crash
 					with msg : Request to merge when 'filtering' is not identical.
 				-->
-				<version>2.9-SNAPSHOT</version>
+				<version>2.9</version>
 				<configuration>
 					<!--
 						tells eclipse that this is not an aspectj project and that we want
